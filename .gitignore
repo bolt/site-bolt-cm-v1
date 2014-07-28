@@ -3,3 +3,4 @@ phpliteadmin.php
 app/database/
 serve
 vendor/
+app/cache/
