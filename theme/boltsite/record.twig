@@ -1,0 +1,22 @@
+
+{% include '_header.twig' %}
+
+    <div class="two-thirds column">
+
+        <h2>{{  page.title }}</h2>
+
+        {{  page.body }}
+
+    </div>
+
+    <div class="one-third column">
+
+
+<div style="margin: 0">{{ socialite('TwitterShare') }}</div>
+<div style="margin: 2px 0 8px 0">{{ socialite('FacebookLike') }}</div>
+<div style="margin: 8px 0">{{ socialite({'GitHubStar': ['bolt','bolt']}) }}</div>
+
+
+    </div>
+
+{% include '_footer.twig' %}

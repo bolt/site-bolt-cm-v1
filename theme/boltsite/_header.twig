@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% if record.title is defined %}{{ record.title }} - {% endif %}{{ app.config.get('general/sitename') }}</title>
+    <meta name="description" content="The Bolt.cm website. Bolt is a simple, easy and sophisticated content management system (CMS).">
+    <meta name="author" content="Bob den Otter, Two Kings, Bolt">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="{{ paths.theme }}css/base.css">
+    <link rel="stylesheet" href="{{ paths.theme }}css/skeleton.css">
+    <link rel="stylesheet" href="{{ paths.theme }}css/layout.css">
+
+    <script src="{{ paths.theme }}js/jquery-1.8.1.min.js"></script>
+
+    <!-- Highlighter --> 
+    <script type="text/javascript" src="//docs.bolt.cm/view/js/shCore.js"></script>
+    <script type="text/javascript" src="//docs.bolt.cm//view/js/shBrushJScript.js"></script>
+    <script type="text/javascript" src="//docs.bolt.cm//view/js/shBrushPlain.js"></script>
+    <script type="text/javascript" src="//docs.bolt.cm//view/js/shBrushPhp.js"></script>
+    <script type="text/javascript" src="//docs.bolt.cm//view/js/shBrushCss.js"></script>
+    <script type="text/javascript" src="//docs.bolt.cm//view/js/shBrushXml.js"></script>
+    <link href="//docs.bolt.cm//view/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="//docs.bolt.cm//view/css/shThemeDefault.css" rel="Stylesheet" type="text/css" />   
+
+    {# Bolt comes with Fancybox, as it's used in the backend. We can use it here, or
+       you just swap it out for the image-viewing script of your choice. Or delete it altogether #}
+    <script src="{{ paths.app }}view/lib/fancybox/jquery.fancybox.pack.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ paths.app }}view/lib/fancybox/jquery.fancybox.css">
+
+    <link rel="stylesheet" href="{{ paths.theme }}css/flexslider.css" type="text/css">
+    <script src="{{ paths.theme }}js/jquery.flexslider.js"></script>
+    <script src="{{ paths.theme }}js/masonry.pkgd.min.js"></script>
+    <script src="{{ paths.theme }}js/boltsite.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ paths.theme }}css/bolt.css">
+
+    <link rel="shortcut icon" href="/app/view/img/favicon-bolt.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/app/view/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/app/view/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/app/view/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/app/view/img/apple-touch-icon-144x144.png">
+
+</head>
+<body>
+
+
+<div class="container">
+    <header class="sixteen columns">
+        <h1 class="">
+{#            <span class="beta"><img src="/theme/boltsite/images/beta-1.png"></span> #}
+            <a href="{{ paths.root }}"><img src="/theme/boltsite/images/bolt-logo.png" alt="bolt"> <span>content management</span></a>
+        </h1>
+        {% setcontent home = "homepage/1" %}
+        <h5>{{ home.subtitle }}</h5>
+        <hr />
+        {{ menu() }}
+    </header>
+
+

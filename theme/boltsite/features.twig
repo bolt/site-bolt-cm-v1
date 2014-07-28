@@ -1,0 +1,44 @@
+
+{% include '_header.twig' %}
+
+	{% setcontent features = "features/latest/100" %}	
+
+	{% set title = features|first.group.name %}
+	<div class="sixteen columns">
+		<h2>Features for {{ title }} </h2>
+	</div>
+
+	<div class="features">
+
+		{% for feature in features %}
+
+		{% if title != feature.group.name %}
+			</div>
+			{% set title = feature.group.name %}
+			<div class="sixteen columns">
+				<h2>Features for {{ title }} </h2>
+			</div>
+			{% set first = true %}
+			<div class="features">
+		{% endif %}
+
+		<div class="feature {% if loop.first or first %}first{% endif %}">
+
+				<h3>{{ feature.title }}</h3>
+				{{ feature.text }}
+				{% if feature.image %}
+				<div class="featureimg">
+					<a class="fancybox" data-fancybox-group="screenshot" href="/files/{{ feature.image }}"><img src="{{ feature.image|thumbnail(420,280,'r') }}" alt="{{ feature.title }}" title="{{showcaseitem.title}}" /></a>
+				</div>
+				{% endif %}
+				{# <p><a href="{{feature.sitelink}}" target="_blank">{{showcaseitem.title}}<span class="outboundlink"><img src="{{paths.theme}}images/icon-link.png" alt="{{ showcaseitem.title }} opens in a new window" title="{{ showcaseitem.title }} opens in a new window" /></span></a></p> #}
+
+		</div>
+
+		{% set first = false %}
+		{% endfor %}
+
+	</div>
+
+
+{% include '_footer.twig' %}

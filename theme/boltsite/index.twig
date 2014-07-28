@@ -1,0 +1,67 @@
+
+{% include '_header.twig' %}
+
+<div id="newsticker">
+  <ul>
+    {% setcontent news = "news/latest/4" %}
+    {% for item in news %}
+    <li>Latest news: {{ item.datepublish|localdate("%B %e") }} <a href="{{ item.link() }}">{{ item.title }}</a> </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<!-- Place somewhere in the <body> of your page -->
+<div class="flexholder">
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="{{ paths.root }}files/slideshow1.png" />
+                <p class="flex-caption"><span>The straightforward and uncluttered interface makes for a smooth workflow.</span></p>
+            </li>
+            <li>
+                <img src="{{ paths.root }}files/slideshow6.png" />
+                <p class="flex-caption"><span>The Bolt backend is fully responsive. Looks and works great on smartphones and tablets.</span></p>
+            </li>
+            <li>
+                <img src="{{ paths.root }}files/slideshow3.png" />
+                <p class="flex-caption"><span>Contextual menus provide quick access to often used functionality.</span></p>
+            </li>
+            <li>
+                <img src="{{ paths.root }}files/slideshow4.png" />
+                <p class="flex-caption"><span>Bolt is very fast, and still light on system resources. The built-in debug toolbar gives a quick insight into what's going on under the hood.</span></p>
+            </li>
+            <li>
+                <img src="{{ paths.root }}files/slideshow5.png" />
+                <p class="flex-caption"><span>Bolt allows for flexible contenttypes with different types of fields. There are HTML areas, File/Image upload inputs, a Video embed field and more.</span></p>
+            </li>
+            <li>
+                <img src="{{ paths.root }}files/slideshow2.png" />
+                <p class="flex-caption"><span>Templates are written in the Twig template language, for clear and concise markup.</span></p>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+    {% setcontent home = "homepage/1" %}
+
+		<div class="one-third column">
+			{{ home.block1 }}
+
+
+		</div>
+		<div class="one-third column">
+            {{ home.block2 }}
+		</div>
+		<div class="one-third column">
+            {{ home.block3 }}
+
+<div style="margin: 0">{{ socialite('TwitterShare') }}</div>
+<div style="margin: 2px 0 8px 0">{{ socialite('FacebookLike') }}</div>
+<div style="margin: 8px 0">{{ socialite({'GitHubStar': ['bolt','bolt']}) }}</div>
+
+		</div>
+<hr>
+
+
+{% include '_footer.twig' %}

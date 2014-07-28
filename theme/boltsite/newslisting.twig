@@ -1,0 +1,45 @@
+
+{% include '_header.twig' %}
+
+    <div class="two-thirds column">
+
+    	{% setcontent news = "news/latest/10" %}
+
+        {% for newsitem in news %}
+
+        <h2><a href="{{ newsitem.link }}">{{  newsitem.title }}</a></h2>
+
+
+        <p>
+
+        {% if newsitem.image %}
+        <a href="{{ newsitem.image|image() }}" class="fancybox">
+            <img src="{{ newsitem.image|thumbnail(200,140) }}" style="float: right; margin-left: 12px;">
+        </a>
+        {% endif %}
+
+        {{  newsitem.excerpt(600) }}
+
+        <a href="{{ newsitem.link }}">More</a>
+        </p>
+
+
+        <p class="meta">Published: {{ newsitem.datepublish|date("l j F - H:i") }}</p>
+        
+        <hr>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="one-third column">
+
+
+<div style="margin: 0">{{ socialite('TwitterShare') }}</div>
+<div style="margin: 2px 0 8px 0">{{ socialite('FacebookLike') }}</div>
+<div style="margin: 8px 0">{{ socialite({'GitHubStar': ['bolt','bolt']}) }}</div>
+
+
+    </div>
+
+{% include '_footer.twig' %}

@@ -1,0 +1,40 @@
+
+{% include '_header.twig' %}
+
+    <div class="two-thirds column">
+
+
+        <h2><a href="{{ record.link }}">{{  record.title }}</a></h2>
+
+        {% if record.image %}
+		<a href="{{ record.image|image() }}" class="fancybox">
+            <img src="{{ record.image|thumbnail(240,140) }}" style="float: right; margin-left: 12px;">
+		</a>
+        {% endif %}
+
+        {% if record.text_markdown is not empty %}
+        
+            {{ record.text_markdown }}
+        {% else %}
+            {{  record.text }}
+        {% endif %}
+
+        <p class="meta">Published: {{ newsitem.datepublish|date("l j F - H:i") }}</p>
+        
+        <hr>
+
+        {{ disqus() }}
+
+    </div>
+
+    <div class="one-third column">
+
+
+<div style="margin: 0">{{ socialite('TwitterShare') }}</div>
+<div style="margin: 2px 0 8px 0">{{ socialite('FacebookLike') }}</div>
+<div style="margin: 8px 0">{{ socialite({'GitHubStar': ['bolt','bolt']}) }}</div>
+
+
+    </div>
+
+{% include '_footer.twig' %}

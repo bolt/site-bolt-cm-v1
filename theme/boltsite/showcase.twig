@@ -1,0 +1,23 @@
+
+{% include '_header.twig' %}
+
+	<div class="sixteen columns">
+		<h1>{{record.title}}</h1>
+		{{record.body}}
+	</div>
+
+		{% setcontent showcases = "showcases/latest/100" %}
+		{% for showcaseitem in showcases %}
+
+		<div class="one-third column">
+			<div class="item">
+				<div class="itemimg">
+					<a class="fancybox" data-fancybox-group="screenshot" href="/files/{{ showcaseitem.image }}"><img src="{{ showcaseitem.image|thumbnail(420,280) }}" alt="{{ showcaseitem.title }}" title="{{showcaseitem.title}}" /></a>
+				</div>
+				<p><a href="{{showcaseitem.sitelink}}" target="_blank">{{showcaseitem.title}}<span class="outboundlink"><img src="{{paths.theme}}images/icon-link.png" alt="{{ showcaseitem.title }} opens in a new window" title="{{ showcaseitem.title }} opens in a new window" /></span></a></p>
+			</div>
+		</div>
+
+		{% endfor %}
+
+{% include '_footer.twig' %}
