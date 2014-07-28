@@ -4,13 +4,15 @@ jQuery(function($) {
     $('.flexslider').flexslider();
     $(".fancybox").fancybox();
 
-    var $container = $('.features');
-    $container.masonry({
-        columnWidth: 290,
-        itemSelector: '.feature',
-        gutter: 30
-
-    });
+    // silly timing issues..
+    window.setTimeout(function() {
+        var $container = $('.features');
+        $container.masonry({
+            columnWidth: 290,
+            itemSelector: '.feature',
+            gutter: 30
+        });
+    }, 150);
 
     if ($('#newsticker').is('*')) {
         $('#newsticker').vTicker();
