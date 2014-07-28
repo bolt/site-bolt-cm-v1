@@ -1,0 +1,5 @@
+*.bak
+phpliteadmin.php
+app/database/
+serve
+vendor/
