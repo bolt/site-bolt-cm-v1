@@ -43,7 +43,6 @@ features:
             height: 300px  
     record_template: newsitem.twig
     listing_template: features.twig
-    sort: title
     taxonomy: [ chapters ]
     recordsperpage: 100
     
